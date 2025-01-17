@@ -1,3 +1,3 @@
 export default function PaymentForm() {
-  return <h3>PaymentForm</h3>;
+  return <div class="bg-purple-500">5</div>;
 }

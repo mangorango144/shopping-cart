@@ -1,3 +1,3 @@
 export default function PaymentSummary() {
-  return <h3>PaymentSummary</h3>;
+  return <div class="bg-green-500">2</div>;
 }

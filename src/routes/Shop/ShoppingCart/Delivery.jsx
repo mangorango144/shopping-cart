@@ -1,3 +1,3 @@
 export default function Delivery() {
-  return <h3>Delivery</h3>;
+  return <div class="bg-red-500">3</div>;
 }
