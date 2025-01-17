@@ -11,6 +11,7 @@
     - ProductCard
   - ShoppingCart
     - Order
+      - OrderCard
     - PaymentSummary
     - Delivery
     - AdditionalService
