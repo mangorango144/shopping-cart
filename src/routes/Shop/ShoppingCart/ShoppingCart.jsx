@@ -10,7 +10,7 @@ export default function ShoppingCart() {
       <h2 className="bg-clip-text bg-gradient-to-b from-teal-300 to-teal-600 mb-10 w-full font-bold text-4xl text-center text-transparent">
         Your cart:
       </h2>
-      <div className="gap-16 grid grid-cols-1 2xl:grid-cols-[0.68fr_0.32fr] m-auto w-[95%] xl:w-10/12">
+      <div className="gap-16 grid grid-cols-1 2xl:grid-cols-[0.68fr_0.32fr] m-auto w-[95%] xl:w-8/12">
         {/* <Order />
         <PaymentSummary />
         <Delivery />
