@@ -18,24 +18,24 @@ export default function ShoppingCart() {
         <PaymentForm /> */}
 
         <div>
-          <span class="block mb-5 font-medium text-2xl">Label 2</span>
-          <div class="bg-white shadow-md p-7 rounded-xl">Item 2</div>
+          <span className="block mb-5 font-medium text-2xl">Label 2</span>
+          <div className="bg-white shadow-md p-7 rounded-xl">Item 2</div>
         </div>
         <div>
-          <span class="block mb-5 font-medium text-2xl">Label 3</span>
-          <div class="bg-white shadow-md p-7 rounded-xl">Item 3</div>
+          <span className="block mb-5 font-medium text-2xl">Label 3</span>
+          <div className="bg-white shadow-md p-7 rounded-xl">Item 3</div>
         </div>
         <div>
-          <span class="block mb-5 font-medium text-2xl">Label 4</span>
-          <div class="bg-white shadow-md p-7 rounded-xl">Item 4</div>
+          <span className="block mb-5 font-medium text-2xl">Label 4</span>
+          <div className="bg-white shadow-md p-7 rounded-xl">Item 4</div>
         </div>
         <div>
-          <span class="block mb-5 font-medium text-2xl">Label 5</span>
-          <div class="bg-white shadow-md p-7 rounded-xl">Item 5</div>
+          <span className="block mb-5 font-medium text-2xl">Label 5</span>
+          <div className="bg-white shadow-md p-7 rounded-xl">Item 5</div>
         </div>
         <div>
-          <span class="block mb-5 font-medium text-2xl">Label 6</span>
-          <div class="bg-white shadow-md p-7 rounded-xl">Item 6</div>
+          <span className="block mb-5 font-medium text-2xl">Label 6</span>
+          <div className="bg-white shadow-md p-7 rounded-xl">Item 6</div>
         </div>
       </div>
     </section>
