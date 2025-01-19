@@ -11,15 +11,12 @@ export default function ShoppingCart() {
         Your cart:
       </h2>
       <div className="gap-16 grid grid-cols-1 2xl:grid-cols-[0.68fr_0.32fr] m-auto w-[95%] xl:w-8/12">
-        {/* <Order />
-        <PaymentSummary />
+        <Order />
+        {/* <PaymentSummary />
         <Delivery />
         <AdditionalService />
         <PaymentForm /> */}
-        <div>
-          <span class="block mb-5 font-medium text-2xl">Label 1</span>
-          <div class="bg-white shadow-md p-7 rounded-xl">Item 1</div>
-        </div>
+
         <div>
           <span class="block mb-5 font-medium text-2xl">Label 2</span>
           <div class="bg-white shadow-md p-7 rounded-xl">Item 2</div>
