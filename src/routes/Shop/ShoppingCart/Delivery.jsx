@@ -3,9 +3,9 @@ import { box_logo as box_logo, speedy_logo } from "../../../assets";
 import { econt_logo } from "../../../assets";
 import { dhl_logo } from "../../../assets";
 
-export default function Delivery() {
+export default function Delivery({ className }) {
   return (
-    <div>
+    <div className={className}>
       <span className="block mb-5 font-medium text-2xl">Delivery</span>
       <div className="gap-x-12 gap-y-5 grid grid-cols-1 lg:grid-cols-2 rounded-xl">
         <div className="items-center grid grid-cols-[1fr_20fr] w-full">

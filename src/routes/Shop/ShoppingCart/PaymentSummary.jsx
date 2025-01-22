@@ -1,6 +1,6 @@
-export default function PaymentSummary() {
+export default function PaymentSummary({ className }) {
   return (
-    <div>
+    <div className={className}>
       <span className="block mb-5 font-medium text-2xl">Payment Summary</span>
       <div className="gap-4 space-y-2 grid grid-cols-[2fr_1fr] bg-white shadow-md p-7 rounded-xl">
         <span className="col-span-2 bg-zinc-200 p-2 rounded-md font-semibold text-center text-gray-600 uppercase">

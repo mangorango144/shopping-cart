@@ -1,6 +1,6 @@
-export default function AdditionalService() {
+export default function AdditionalService({ className }) {
   return (
-    <div>
+    <div className={className}>
       <span className="block mb-5 font-medium text-2xl">
         Additional Service
       </span>
