@@ -13,6 +13,7 @@ export default function PaymentSummary() {
         <input
           type="text"
           placeholder="coupon code"
+          name="coupon"
           className="border-2 p-2 rounded-md font-medium uppercase"
         />
         <button className="bg-sky-100 hover:bg-sky-200 rounded-md font-medium text-sky-500">

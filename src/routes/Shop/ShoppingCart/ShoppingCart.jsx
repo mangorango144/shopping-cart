@@ -13,14 +13,10 @@ export default function ShoppingCart() {
       <div className="gap-16 grid grid-cols-1 2xl:grid-cols-[2fr_1fr] m-auto w-[95%] xl:w-8/12">
         <Order />
         <PaymentSummary />
-        {/* <Delivery />
-        <AdditionalService />
+        <Delivery />
+        {/* <AdditionalService />
         <PaymentForm /> */}
 
-        <div>
-          <span className="block mb-5 font-medium text-2xl">Label 3</span>
-          <div className="bg-white shadow-md p-7 rounded-xl">Item 3</div>
-        </div>
         <div>
           <span className="block mb-5 font-medium text-2xl">Label 4</span>
           <div className="bg-white shadow-md p-7 rounded-xl">Item 4</div>
