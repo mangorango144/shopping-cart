@@ -14,13 +14,9 @@ export default function ShoppingCart() {
         <Order />
         <PaymentSummary />
         <Delivery />
-        {/* <AdditionalService />
-        <PaymentForm /> */}
+        <AdditionalService />
+        {/* <PaymentForm /> */}
 
-        <div>
-          <span className="block mb-5 font-medium text-2xl">Label 4</span>
-          <div className="bg-white shadow-md p-7 rounded-xl">Item 4</div>
-        </div>
         <div>
           <span className="block mb-5 font-medium text-2xl">Label 5</span>
           <div className="bg-white shadow-md p-7 rounded-xl">Item 5</div>
