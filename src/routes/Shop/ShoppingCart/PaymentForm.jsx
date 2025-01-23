@@ -60,7 +60,7 @@ export default function PaymentForm({ className }) {
           }}
         />
 
-        <button className="col-span-2 bg-blue-600 hover:bg-blue-700 mt-6 p-4 rounded-xl font-medium text-white">
+        <button className="col-span-2 bg-blue-600 hover:bg-blue-700 mt-6 p-4 rounded-xl font-medium text-white text-xl">
           Make payment
         </button>
       </div>
