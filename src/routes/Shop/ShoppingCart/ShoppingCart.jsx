@@ -15,12 +15,7 @@ export default function ShoppingCart() {
         <PaymentSummary className="order-4 2xl:order-2" />
         <Delivery className="order-3 2xl:order-3" />
         <AdditionalService className="order-2 2xl:order-4" />
-        {/* <PaymentForm /> */}
-
-        <div className="order-5 2xl:order-5">
-          <span className="block mb-5 font-medium text-2xl">Label 5</span>
-          <div className="bg-white shadow-md p-7 rounded-xl">Item 5</div>
-        </div>
+        <PaymentForm className="order-5 2xl:order-5" />
       </div>
     </section>
   );
