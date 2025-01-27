@@ -8,10 +8,9 @@
 - Home
 - Shop
   - Products
-    - ProductCard
+    - ProductDetails
   - ShoppingCart
     - Order
-      - OrderCard
     - PaymentSummary
     - Delivery
     - AdditionalService
