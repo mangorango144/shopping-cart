@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import { ProductsLoader } from "../../../components";
+import ProductsLoader from "./ProductsLoader";
 
 export default function Products() {
   const [products, setProducts] = useState(null);
@@ -8,7 +8,7 @@ export default function Products() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const getProducts = () => {
+    const getProducts = async () => {
       setTimeout(async () => {
         try {
           const res = await fetch("https://fakestoreapi.com/products");
