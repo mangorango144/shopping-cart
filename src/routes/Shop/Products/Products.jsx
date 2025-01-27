@@ -13,7 +13,7 @@ export default function Products() {
         const json = await res.json();
         setProducts(json);
         setIsLoading(false);
-      }, 1000);
+      }, 500);
     };
 
     getProducts();

@@ -1,15 +1,23 @@
 import { FaCartPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function ProductCard({ product }) {
   return (
     <div className="flex flex-col justify-between bg-white shadow-md p-6 rounded-3xl h-[460px]">
-      <img
-        src={product.image}
-        alt={product.title}
-        className="m-auto w-[60%] h-auto max-h-[50%] object-contain"
-      />
+      <Link
+        className="flex items-center m-auto w-[60%] h-auto max-h-[50%]"
+        to={`${product.id}`}
+      >
+        <img
+          src={product.image}
+          alt={product.title}
+          className="w-full max-h-full object-contain"
+        />
+      </Link>
       <div className="flex flex-col gap-4 mt-10">
-        <p className="text-center text-sm">{product.title}</p>
+        <Link to={`${product.id}`}>
+          <p className="text-center text-sm">{product.title}</p>
+        </Link>
         <p className="mx-auto font-bold">
           <span className="font-normal text-slate-500">Price: </span>$
           {product.price}

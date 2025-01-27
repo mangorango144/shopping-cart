@@ -1,5 +1,5 @@
 import Layout from "../layouts/Layout";
-import { Products } from "../routes";
+import { ProductDetails, Products } from "../routes";
 import { ShoppingCart } from "../routes";
 import { Shop } from "../routes";
 import { Home } from "../routes";
@@ -22,6 +22,10 @@ const routes = [
           {
             path: "products",
             element: <Products />,
+          },
+          {
+            path: "products/:id",
+            element: <ProductDetails />,
           },
           {
             path: "shopping-cart",

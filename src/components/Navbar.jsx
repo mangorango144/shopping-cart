@@ -13,7 +13,7 @@ export default function Navbar() {
         className="flex items-center hover:bg-lime-200 ml-auto px-4 py-1 rounded-2xl transition duration-500"
       >
         <BsCart4 className="mr-2 w-auto h-6" />
-        <span className="flex flex-col text-xs">
+        <span className="flex flex-col min-w-20 sm:min-w-10 text-xs">
           My Cart
           <span className="text-slate-400">3 Items</span>
         </span>
