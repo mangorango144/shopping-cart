@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { useShop } from "../context";
 import { FaCartPlus } from "react-icons/fa";
+import { useShop } from "../../../hooks";
 
 export default function ProductDetails() {
   const { id } = useParams();

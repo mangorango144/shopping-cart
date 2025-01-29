@@ -1,15 +1,14 @@
-import { createContext, useContext } from "react";
-import { useFetchProducts } from "../../../hooks";
+import { createContext } from "react";
+import { useCart, useFetchProducts } from "../../../hooks";
 
 export const ShopContext = createContext();
 
-export const useShop = () => useContext(ShopContext);
-
 export default function ShopProvider({ children }) {
   const { products, loading, error } = useFetchProducts();
+  const { cart, setCart } = useCart();
 
   return (
-    <ShopContext.Provider value={{ products, loading, error }}>
+    <ShopContext.Provider value={{ products, loading, error, cart, setCart }}>
       {children}
     </ShopContext.Provider>
   );
