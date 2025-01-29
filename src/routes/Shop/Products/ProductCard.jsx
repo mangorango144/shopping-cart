@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { useShop } from "../../../hooks";
 
 export default function ProductCard({ product }) {
-  const { setCart } = useShop();
+  const { cart, setCart } = useShop();
 
-  const handleClick = (cardProduct) => () => {
-    setCart((prev) => [...prev, cardProduct]);
+  const handleAdd = (currProduct) => () => {
+    if (!cart.some((item) => item.id == currProduct.id)) {
+      setCart((prev) => [...prev, currProduct]);
+    }
   };
 
   return (
@@ -30,7 +32,7 @@ export default function ProductCard({ product }) {
           {product.price}
         </p>
         <button
-          onClick={handleClick(product)}
+          onClick={handleAdd(product)}
           className="bg-green-600 hover:bg-green-500 p-3 rounded-2xl h-auto font-medium text-lg text-white"
         >
           <FaCartPlus className="inline mr-1 mb-1" /> Add to cart
