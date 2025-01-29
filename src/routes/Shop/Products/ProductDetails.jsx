@@ -1,11 +1,16 @@
 import { useParams } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
-import { useShop } from "../../../hooks";
+import { useCart, useShop } from "../../../hooks";
 
 export default function ProductDetails() {
   const { id } = useParams();
   const { products } = useShop();
   const product = products.find((product) => product.id == id);
+  const { setCart } = useCart();
+
+  const handleChange = (currProduct) => () => {
+    setCart((prev) => [...prev, currProduct]);
+  };
 
   return (
     <section className="grid grid-cols-1 xl:grid-cols-[1fr_2fr] bg-white shadow-md mx-auto xl:p-7 rounded-3xl w-[95%] xl:w-8/12 min-h-[604px]">
@@ -35,7 +40,10 @@ export default function ProductDetails() {
           <span className="font-medium text-center text-slate-500 text-xl xl:text-left italic">
             Price: <b className="text-black">${product.price}</b>
           </span>
-          <button className="bg-green-600 hover:bg-green-500 px-10 py-3 rounded-2xl h-auto font-bold text-lg text-white">
+          <button
+            onClick={handleChange(product)}
+            className="bg-green-600 hover:bg-green-500 px-10 py-3 rounded-2xl h-auto font-bold text-lg text-white"
+          >
             <FaCartPlus className="inline mr-1 mb-1" /> Add to cart
           </button>
         </div>
