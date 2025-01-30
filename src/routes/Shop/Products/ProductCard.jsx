@@ -5,9 +5,9 @@ import { useShop } from "../../../hooks";
 export default function ProductCard({ product }) {
   const { cart, setCart } = useShop();
 
-  const handleAdd = (currProduct) => () => {
-    if (!cart.some((item) => item.id == currProduct.id)) {
-      setCart((prev) => [...prev, currProduct]);
+  const handleAdd = () => {
+    if (!cart.some((item) => item.id == product.id)) {
+      setCart((prev) => [...prev, product]);
     }
   };
 
@@ -32,7 +32,7 @@ export default function ProductCard({ product }) {
           {product.price}
         </p>
         <button
-          onClick={handleAdd(product)}
+          onClick={handleAdd}
           className="bg-green-600 hover:bg-green-500 p-3 rounded-2xl h-auto font-medium text-lg text-white"
         >
           <FaCartPlus className="inline mr-1 mb-1" /> Add to cart

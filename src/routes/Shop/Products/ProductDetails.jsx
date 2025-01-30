@@ -1,15 +1,32 @@
 import { useParams } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 import { useShop } from "../../../hooks";
+import ProductsLoader from "./ProductsLoader";
 
 export default function ProductDetails() {
   const { id } = useParams();
-  const { products, cart, setCart } = useShop();
-  const product = products.find((product) => product.id == id);
+  const { products, loading, error, cart, setCart } = useShop();
 
-  const handleAdd = (currProduct) => () => {
-    if (!cart.some((item) => item.id == currProduct.id)) {
-      setCart((prev) => [...prev, currProduct]);
+  if (loading) return <ProductsLoader />;
+  if (error) {
+    return (
+      <div className="font-semibold text-center text-red-500 text-xl">
+        {error}
+      </div>
+    );
+  }
+
+  const product = products?.find((product) => product.id == id);
+  if (!product)
+    return (
+      <div className="font-semibold text-center text-gray-500 text-xl">
+        Product not found
+      </div>
+    );
+
+  const handleAdd = () => {
+    if (!cart.some((item) => item.id == product.id)) {
+      setCart((prev) => [...prev, product]);
     }
   };
 
@@ -42,7 +59,7 @@ export default function ProductDetails() {
             Price: <b className="text-black">${product.price}</b>
           </span>
           <button
-            onClick={handleAdd(product)}
+            onClick={handleAdd}
             className="bg-green-600 hover:bg-green-500 px-10 py-3 rounded-2xl h-auto font-bold text-lg text-white"
           >
             <FaCartPlus className="inline mr-1 mb-1" /> Add to cart
@@ -52,3 +69,11 @@ export default function ProductDetails() {
     </section>
   );
 }
+
+// {/* {loading && <ProductsLoader />}
+//       {error && (
+//         <div className="flex justify-center my-auto font-semibold text-red-500 text-xl">
+//           {error}
+//         </div>
+//       )}
+//       {products && ( */}
