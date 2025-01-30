@@ -7,9 +7,7 @@ export const useCart = () => {
   });
 
   useEffect(() => {
-    if (cart.length > 0) {
-      sessionStorage.setItem("cart", JSON.stringify(cart));
-    }
+    sessionStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
   return { cart, setCart };
