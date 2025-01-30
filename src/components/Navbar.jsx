@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { BsCart4 } from "react-icons/bs";
+import { useShop } from "../hooks";
 
 export default function Navbar() {
+  const { cart } = useShop();
+
   return (
     <nav className="flex justify-start items-center bg-white shadow-md mx-auto mt-4 px-14 rounded-full w-[95%] xl:w-8/12 h-[56px] font-medium text-black">
       <Link to="/">Home</Link>
@@ -15,7 +18,7 @@ export default function Navbar() {
         <BsCart4 className="mr-2 w-auto h-6" />
         <span className="flex flex-col min-w-20 sm:min-w-10 text-xs">
           My Cart
-          <span className="text-slate-400">3 Items</span>
+          <span className="text-slate-400">{cart.length} Items</span>
         </span>
       </Link>
     </nav>
