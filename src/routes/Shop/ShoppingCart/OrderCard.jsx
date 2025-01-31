@@ -21,7 +21,7 @@ export default function OrderCard({ product }) {
           type="number"
           name="quantity"
           defaultValue="1"
-          className="ml-1 border rounded-lg w-10 text-center"
+          className="ml-1 border rounded-lg show-spinner w-10 text-center"
         />
         <div
           onClick={handleRemove(product)}
