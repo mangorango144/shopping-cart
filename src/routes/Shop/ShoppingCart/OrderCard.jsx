@@ -1,11 +1,17 @@
+import { useState } from "react";
 import { useShop } from "../../../hooks";
 import { TbTrashOff } from "react-icons/tb";
 
-export default function OrderCard({ product }) {
+export default function OrderCard({ product, updateQuantities }) {
   const { cart, setCart } = useShop();
 
-  const handleRemove = (productToRemove) => () => {
-    setCart(cart.filter((curr) => curr.id != productToRemove.id));
+  const handleRemove = () => {
+    setCart(cart.filter((curr) => curr.id != product.id));
+  };
+
+  const handleInput = (e) => {
+    e.target.value = Math.max(1, Number(e.target.value) || 1);
+    updateQuantities((prev) => ({ ...prev, [product.id]: e.target.value }));
   };
 
   return (
@@ -20,11 +26,13 @@ export default function OrderCard({ product }) {
         <input
           type="number"
           name="quantity"
+          min="1"
           defaultValue="1"
+          onInput={handleInput}
           className="ml-1 border rounded-lg show-spinner w-10 text-center"
         />
         <div
-          onClick={handleRemove(product)}
+          onClick={handleRemove}
           className="flex justify-center hover:border-2 hover:bg-red-100 ml-6 border-red-200 rounded-lg w-8 cursor-pointer"
         >
           <TbTrashOff className="text-red-600 text-sm md:text-xl" />

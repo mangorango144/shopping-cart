@@ -1,4 +1,16 @@
-export default function PaymentSummary({ className }) {
+import { useShop } from "../../../hooks";
+
+export default function PaymentSummary({ cartQuantities, className }) {
+  const { cart } = useShop();
+
+  const orderSummary = cart
+    .reduce(
+      (accumulator, currItem) =>
+        accumulator + currItem.price * (cartQuantities[currItem.id] || 1),
+      0
+    )
+    .toFixed(2);
+
   return (
     <div className={className}>
       <span className="block mb-5 font-medium text-2xl">Payment Summary</span>
@@ -23,7 +35,7 @@ export default function PaymentSummary({ className }) {
         <hr className="col-span-2 border-t-2 border-dashed" />
 
         <p className="font-medium text-gray-400 text-left">Order Summary</p>
-        <p className="text-right font-semibold">$122</p>
+        <p className="text-right font-semibold">${orderSummary}</p>
 
         <p className="font-medium text-gray-400 text-left">
           Additional Service
