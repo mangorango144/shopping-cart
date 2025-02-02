@@ -1,4 +1,17 @@
-export default function AdditionalService({ className }) {
+export default function AdditionalService({ className, updateServices }) {
+  const services = {
+    care_package: 10,
+    environment_friendly: 2,
+    golden_guard: 5,
+  };
+
+  const handleChange = (e) => {
+    updateServices((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.checked ? services[e.target.name] : 0,
+    }));
+  };
+
   return (
     <div className={className}>
       <span className="block mb-5 font-medium text-2xl">
@@ -16,7 +29,8 @@ export default function AdditionalService({ className }) {
           <label className="flex items-center cursor-pointer">
             <input
               type="checkbox"
-              name="toggle-switch"
+              name="care_package"
+              onChange={handleChange}
               className="hidden peer"
             />
             <span className="bg-stone-200 peer-checked:bg-blue-200 rounded-full w-8 h-4"></span>
@@ -35,7 +49,8 @@ export default function AdditionalService({ className }) {
           <label className="flex items-center cursor-pointer">
             <input
               type="checkbox"
-              name="toggle-switch"
+              name="environment_friendly"
+              onChange={handleChange}
               className="hidden peer"
             />
             <span className="bg-stone-200 peer-checked:bg-blue-200 rounded-full w-8 h-4"></span>
@@ -54,7 +69,8 @@ export default function AdditionalService({ className }) {
           <label className="flex items-center cursor-pointer">
             <input
               type="checkbox"
-              name="toggle-switch"
+              name="golden_guard"
+              onChange={handleChange}
               className="hidden peer"
             />
             <span className="bg-stone-200 peer-checked:bg-blue-200 rounded-full w-8 h-4"></span>

@@ -7,6 +7,11 @@ import PaymentSummary from "./PaymentSummary";
 
 export default function ShoppingCart() {
   const [cartQuantities, setCartQuantities] = useState({});
+  const [selectedServices, setSelectedServices] = useState({
+    care_package: 0,
+    environment_friendly: 0,
+    golden_guard: 0,
+  });
 
   return (
     <section>
@@ -17,10 +22,14 @@ export default function ShoppingCart() {
         <Order updateQuantities={setCartQuantities} />
         <PaymentSummary
           cartQuantities={cartQuantities}
+          selectedServices={selectedServices}
           className="order-4 2xl:order-2"
         />
         <Delivery className="order-3 2xl:order-3" />
-        <AdditionalService className="order-2 2xl:order-4" />
+        <AdditionalService
+          updateServices={setSelectedServices}
+          className="order-2 2xl:order-4"
+        />
         <PaymentForm className="order-5 2xl:order-5" />
       </div>
     </section>

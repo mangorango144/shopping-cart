@@ -1,6 +1,10 @@
 import { useShop } from "../../../hooks";
 
-export default function PaymentSummary({ cartQuantities, className }) {
+export default function PaymentSummary({
+  className,
+  cartQuantities,
+  selectedServices,
+}) {
   const { cart } = useShop();
 
   const orderSummary = cart
@@ -10,6 +14,11 @@ export default function PaymentSummary({ cartQuantities, className }) {
       0
     )
     .toFixed(2);
+
+  const serviceSum = Object.values(selectedServices).reduce(
+    (acc, num) => acc + num,
+    0
+  );
 
   return (
     <div className={className}>
@@ -40,7 +49,7 @@ export default function PaymentSummary({ cartQuantities, className }) {
         <p className="font-medium text-gray-400 text-left">
           Additional Service
         </p>
-        <p className="text-right font-semibold text-sky-500">$10</p>
+        <p className="text-right font-semibold text-sky-500">${serviceSum}</p>
 
         <p className="font-medium text-gray-400 text-left">Total Amount</p>
         <p className="text-right font-semibold">$132</p>
