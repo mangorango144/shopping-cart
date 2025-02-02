@@ -21,6 +21,12 @@ export default function PaymentSummary({
     0
   );
 
+  const totalAmmount = (
+    Number(orderSummary) +
+    additionalService +
+    delivery
+  ).toFixed(2);
+
   return (
     <div className={className}>
       <span className="block mb-5 font-medium text-2xl">Payment Summary</span>
@@ -60,7 +66,7 @@ export default function PaymentSummary({
         </p>
 
         <p className="font-medium text-gray-400 text-left">Total Amount</p>
-        <p className="text-right font-semibold">$132</p>
+        <p className="text-right font-semibold">${totalAmmount}</p>
 
         <hr className="col-span-2 border-t-2 border-dashed" />
 
