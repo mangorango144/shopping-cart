@@ -12,6 +12,7 @@ export default function ShoppingCart() {
     environment_friendly: 0,
     golden_guard: 0,
   });
+  const [delivery, setDelivery] = useState(5.25);
 
   return (
     <section>
@@ -21,14 +22,18 @@ export default function ShoppingCart() {
       <div className="gap-16 grid grid-cols-1 2xl:grid-cols-[2fr_1fr] m-auto w-[95%] xl:w-8/12">
         <Order updateQuantities={setCartQuantities} />
         <PaymentSummary
+          className="order-4 2xl:order-2"
           cartQuantities={cartQuantities}
           selectedServices={selectedServices}
-          className="order-4 2xl:order-2"
+          delivery={delivery}
         />
-        <Delivery className="order-3 2xl:order-3" />
+        <Delivery
+          className="order-3 2xl:order-3"
+          updateDelivery={setDelivery}
+        />
         <AdditionalService
-          updateServices={setSelectedServices}
           className="order-2 2xl:order-4"
+          updateServices={setSelectedServices}
         />
         <PaymentForm className="order-5 2xl:order-5" />
       </div>

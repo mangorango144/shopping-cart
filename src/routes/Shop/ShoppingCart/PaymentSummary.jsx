@@ -4,6 +4,7 @@ export default function PaymentSummary({
   className,
   cartQuantities,
   selectedServices,
+  delivery,
 }) {
   const { cart } = useShop();
 
@@ -49,7 +50,14 @@ export default function PaymentSummary({
         <p className="font-medium text-gray-400 text-left">
           Additional Service
         </p>
-        <p className="text-right font-semibold text-sky-500">${serviceSum}</p>
+        <p className="text-right font-semibold text-sky-500">
+          {serviceSum ? `$${serviceSum}` : "None"}
+        </p>
+
+        <p className="font-medium text-gray-400 text-left">Delivery</p>
+        <p className="text-right font-semibold">
+          {delivery === 0 ? "Free" : `$${delivery.toFixed(2)}`}
+        </p>
 
         <p className="font-medium text-gray-400 text-left">Total Amount</p>
         <p className="text-right font-semibold">$132</p>

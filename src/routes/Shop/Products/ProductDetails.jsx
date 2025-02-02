@@ -69,11 +69,3 @@ export default function ProductDetails() {
     </section>
   );
 }
-
-// {/* {loading && <ProductsLoader />}
-//       {error && (
-//         <div className="flex justify-center my-auto font-semibold text-red-500 text-xl">
-//           {error}
-//         </div>
-//       )}
-//       {products && ( */}
