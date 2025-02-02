@@ -16,7 +16,11 @@ export default function Home() {
         Browse shop
       </Link>
 
-      <a href="https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart">
+      <a
+        href="https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <button className="inline-block border-2 border-slate-400 bg-transparent hover:bg-slate-100 shadow-lg px-4 py-2 rounded-full text-neutral-600">
           Assignment reference
         </button>

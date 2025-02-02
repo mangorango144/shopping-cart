@@ -56,7 +56,7 @@ export default function ProductDetails() {
 
         <div className="items-center gap-y-10 grid grid-cols-1 xl:grid-cols-2 mt-10">
           <span className="font-medium text-center text-slate-500 text-xl xl:text-left italic">
-            Price: <b className="text-black">${product.price}</b>
+            Price: <b className="text-black">${product.price.toFixed(2)}</b>
           </span>
           <button
             onClick={handleAdd}

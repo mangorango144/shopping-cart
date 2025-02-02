@@ -29,7 +29,7 @@ export default function ProductCard({ product }) {
         </Link>
         <p className="mx-auto font-bold">
           <span className="font-normal text-slate-500">Price: </span>$
-          {product.price}
+          {product.price.toFixed(2)}
         </p>
         <button
           onClick={handleAdd}

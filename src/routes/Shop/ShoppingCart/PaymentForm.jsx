@@ -3,7 +3,9 @@ export default function PaymentForm({ className }) {
     <div className={className}>
       <span className="block mb-5 font-medium text-2xl">Payment</span>
       <div className="gap-2 gap-x-6 grid grid-cols-2 bg-white shadow-md p-9 rounded-xl 2xl:w-[500px]">
-        <span className="col-span-2 font-medium text-slate-500">Full Name</span>
+        <span className="col-span-2 font-medium text-slate-500">
+          First and Last Name
+        </span>
         <input
           type="text"
           name="name-input"
