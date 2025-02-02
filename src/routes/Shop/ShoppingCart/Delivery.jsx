@@ -5,7 +5,7 @@ import { dhl_logo } from "../../../assets";
 import { act, useEffect, useState } from "react";
 
 export default function Delivery({ className, updateDelivery }) {
-  const [active, setActive] = useState("speedy");
+  const [active, setActive] = useState("collect");
 
   useEffect(() => {
     switch (active) {
