@@ -16,7 +16,7 @@ export default function PaymentSummary({
     )
     .toFixed(2);
 
-  const serviceSum = Object.values(selectedServices).reduce(
+  const additionalService = Object.values(selectedServices).reduce(
     (acc, num) => acc + num,
     0
   );
@@ -51,7 +51,7 @@ export default function PaymentSummary({
           Additional Service
         </p>
         <p className="text-right font-semibold text-sky-500">
-          {serviceSum ? `$${serviceSum}` : "None"}
+          {additionalService ? `$${additionalService}` : "None"}
         </p>
 
         <p className="font-medium text-gray-400 text-left">Delivery</p>
