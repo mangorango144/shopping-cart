@@ -44,8 +44,8 @@ export default function Delivery({ className, updateDelivery }) {
           </div>
           <div
             className={`${
-              active === "speedy" ? "border-sky-500" : "border-slate-300"
-            } box-border items-center border-2 grid grid-cols-[2fr_3fr_1fr] bg-white shadow-md p-6 rounded-xl`}
+              active === "speedy" ? "ring-opacity-100" : ""
+            } box-border items-center ring-2 ring-sky-500 ring-opacity-0 grid grid-cols-[2fr_3fr_1fr] bg-white shadow-md p-6 rounded-xl`}
           >
             <img
               src={speedy_logo}
@@ -78,8 +78,8 @@ export default function Delivery({ className, updateDelivery }) {
           </div>
           <div
             className={`${
-              active === "econt" ? "border-sky-500" : "border-slate-300"
-            } box-border items-center border-2 grid grid-cols-[2fr_3fr_1fr] bg-white shadow-md p-6 rounded-xl`}
+              active === "econt" ? "ring-opacity-100" : ""
+            } box-border items-center ring-2 ring-sky-500 ring-opacity-0 grid grid-cols-[2fr_3fr_1fr] bg-white shadow-md p-6 rounded-xl`}
           >
             <img
               src={econt_logo}
@@ -112,8 +112,8 @@ export default function Delivery({ className, updateDelivery }) {
           </div>
           <div
             className={`${
-              active === "dhl" ? "border-sky-500" : "border-slate-300"
-            } box-border items-center border-2 grid grid-cols-[2fr_3fr_1fr] bg-white shadow-md p-6 rounded-xl`}
+              active === "dhl" ? "ring-opacity-100" : ""
+            } box-border items-center ring-2 ring-sky-500 ring-opacity-0 grid grid-cols-[2fr_3fr_1fr] bg-white shadow-md p-6 rounded-xl`}
           >
             <img
               src={dhl_logo}
@@ -146,8 +146,8 @@ export default function Delivery({ className, updateDelivery }) {
           </div>
           <div
             className={`${
-              active === "collect" ? "border-sky-500" : "border-slate-300"
-            } box-border items-center border-2 grid grid-cols-[2fr_3fr_1fr] bg-white shadow-md p-6 rounded-xl`}
+              active === "collect" ? "ring-opacity-100" : ""
+            } box-border items-center ring-2 ring-sky-500 ring-opacity-0 grid grid-cols-[2fr_3fr_1fr] bg-white shadow-md p-6 rounded-xl`}
           >
             <img
               src={box_logo}
