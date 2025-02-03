@@ -1,6 +1,7 @@
 import { FaCartPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useShop } from "../../../hooks";
+import toast from "react-hot-toast";
 
 export default function ProductCard({ product }) {
   const { cart, setCart } = useShop();
@@ -8,6 +9,9 @@ export default function ProductCard({ product }) {
   const handleAdd = () => {
     if (!cart.some((item) => item.id == product.id)) {
       setCart((prev) => [...prev, product]);
+      toast.success("Added to cart");
+    } else {
+      toast.error("Already in the cart");
     }
   };
 

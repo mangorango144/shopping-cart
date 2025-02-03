@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 import { useShop } from "../../../hooks";
 import ProductsLoader from "./ProductsLoader";
+import toast from "react-hot-toast";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -27,6 +28,9 @@ export default function ProductDetails() {
   const handleAdd = () => {
     if (!cart.some((item) => item.id == product.id)) {
       setCart((prev) => [...prev, product]);
+      toast.success("Added to cart");
+    } else {
+      toast.error("Already in the cart");
     }
   };
 
