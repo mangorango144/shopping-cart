@@ -1,17 +1,47 @@
+import toast from "react-hot-toast";
+
 export default function PaymentForm({ className }) {
+  const handlePayment = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const nameInput = form.elements.name_input.value.trim();
+    const cardInput = form.elements.card_input.value.trim();
+    const expiryInput = form.elements.expiry_input.value.trim();
+    const cvvInput = form.elements.cvv_input.value.trim();
+
+    if (!nameInput || !cardInput || !expiryInput || !cvvInput) {
+      toast.error("All fields are required.");
+      return;
+    }
+
+    toast.promise(makePayment(), {
+      loading: "Processing...",
+      success: <b>Payment successful!</b>,
+      error: <b>Could not pay.</b>,
+    });
+  };
+
+  const makePayment = () => {
+    return new Promise((resolve) => setTimeout(resolve, 2000));
+  };
+
   return (
     <div className={className}>
       <span className="block mb-5 font-medium text-2xl">Payment</span>
-      <div className="gap-2 gap-x-6 grid grid-cols-2 bg-white shadow-md p-9 rounded-xl 2xl:w-[500px]">
+      <form
+        onSubmit={handlePayment}
+        className="gap-2 gap-x-6 grid grid-cols-2 bg-white shadow-md p-9 rounded-xl 2xl:w-[500px]"
+      >
         <span className="col-span-2 font-medium text-slate-500">
           First and Last Name
         </span>
         <input
           type="text"
-          name="name-input"
-          placeholder="Ivan Ivanov..."
+          name="name_input"
+          placeholder="ivan ivanov..."
           maxLength="30"
-          className="col-span-2 p-2 border focus:border-blue-500 rounded-xl placeholder:tracking-wide focus:outline-none"
+          className="col-span-2 p-2 border focus:border-blue-500 rounded-xl placeholder:tracking-wide focus:outline-none uppercase"
           onInput={(e) => {
             e.target.value = e.target.value.replace(/[^a-zA-Z ]/g, ""); // Remove non-letters
           }}
@@ -22,7 +52,7 @@ export default function PaymentForm({ className }) {
         </span>
         <input
           type="text"
-          name="card-input"
+          name="card_input"
           placeholder="xxxx xxxx xxxx xxxx"
           maxLength="19"
           className="col-span-2 p-2 border focus:border-blue-500 rounded-xl placeholder:tracking-[2px] focus:outline-none"
@@ -39,7 +69,7 @@ export default function PaymentForm({ className }) {
 
         <input
           type="text"
-          name="card-input"
+          name="expiry_input"
           placeholder="mm / yy"
           maxLength="5"
           className="p-2 border focus:border-blue-500 rounded-xl placeholder:tracking-[2px] focus:outline-none"
@@ -53,7 +83,7 @@ export default function PaymentForm({ className }) {
         />
         <input
           type="text"
-          name="card-input"
+          name="cvv_input"
           placeholder="xxx"
           maxLength="3"
           className="p-2 border focus:border-blue-500 rounded-xl placeholder:tracking-[2px] focus:outline-none"
@@ -65,7 +95,7 @@ export default function PaymentForm({ className }) {
         <button className="col-span-2 bg-blue-600 hover:bg-blue-700 mt-6 p-4 rounded-xl font-medium text-white text-xl">
           Make payment
         </button>
-      </div>
+      </form>
     </div>
   );
 }
