@@ -20,7 +20,9 @@ export default function OrderCard({ product, updateQuantities }) {
       <p className="font-medium text-[8px] text-slate-600 sm:text-sm">
         {product.title}
       </p>
-      <p className="font-bold text-[8px] sm:text-base">${product.price}</p>
+      <p className="font-bold text-[8px] sm:text-base">
+        ${product.price.toFixed(2)}
+      </p>
       <div className="flex justify-center items-center">
         <p className="text-[8px] text-slate-400 sm:text-sm">Quantity:</p>
         <input
