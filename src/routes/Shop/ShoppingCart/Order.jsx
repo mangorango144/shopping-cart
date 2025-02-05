@@ -1,9 +1,9 @@
 import { Fragment } from "react";
-import OrderCard from "./OrderCard";
+import { OrderCard } from "./OrderCard";
 import { useShop } from "../../../hooks";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 
-export default function Order({ updateQuantities }) {
+export function Order({ updateQuantities }) {
   const { cart } = useShop();
 
   return (

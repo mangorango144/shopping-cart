@@ -1,11 +1,11 @@
-import Layout from "../layouts/Layout";
+import { Layout } from "../layouts";
 import { Login, ProductDetails, Products } from "../routes";
 import { ShoppingCart } from "../routes";
 import { Shop } from "../routes";
 import { Home } from "../routes";
 import { ErrorPage } from "../routes";
 
-const routes = [
+export const routes = [
   {
     path: "/",
     element: <Layout />,

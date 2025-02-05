@@ -2,9 +2,9 @@ import { FaCheck } from "react-icons/fa6";
 import { box_logo as box_logo, speedy_logo } from "../../../assets";
 import { econt_logo } from "../../../assets";
 import { dhl_logo } from "../../../assets";
-import { act, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function Delivery({ className, updateDelivery }) {
+export function Delivery({ className, updateDelivery }) {
   const [active, setActive] = useState("collect");
 
   useEffect(() => {

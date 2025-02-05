@@ -1,4 +1,4 @@
-export { default as Products } from "./Products";
-export { default as ProductCard } from "./ProductCard";
-export { default as ProductDetails } from "./ProductDetails";
-export { default as ProductsLoader } from "./ProductsLoader";
+export { Products } from "./Products";
+export { ProductCard } from "./ProductCard";
+export { ProductDetails } from "./ProductDetails";
+export { ProductsLoader } from "./ProductsLoader";

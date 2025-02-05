@@ -1,6 +1,6 @@
 import { useShop } from "../../../hooks";
 
-export default function PaymentSummary({
+export function PaymentSummary({
   className,
   cartQuantities,
   selectedServices,

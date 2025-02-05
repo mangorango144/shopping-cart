@@ -1,4 +1,4 @@
-export default function ProductsLoader() {
+export function ProductsLoader() {
   return (
     <div className="flex justify-center items-center h-96">
       <div className="border-4 mr-4 border-t-transparent border-teal-500 rounded-full w-12 h-12 animate-spin"></div>

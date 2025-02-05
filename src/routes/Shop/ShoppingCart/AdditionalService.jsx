@@ -1,4 +1,4 @@
-export default function AdditionalService({ className, updateServices }) {
+export function AdditionalService({ className, updateServices }) {
   const services = {
     care_package: 10,
     environment_friendly: 2,

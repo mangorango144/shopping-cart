@@ -1,8 +1,8 @@
 import { useShop } from "../../../hooks";
-import ProductCard from "./ProductCard";
-import ProductsLoader from "./ProductsLoader";
+import { ProductCard } from "./ProductCard";
+import { ProductsLoader } from "./ProductsLoader";
 
-export default function Products() {
+export function Products() {
   const { products, loading, error } = useShop();
 
   return (

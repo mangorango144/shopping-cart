@@ -1,2 +1,2 @@
 export { ShopContext } from "./ShopContext";
-export { default as ShopProvider } from "./ShopContext";
+export { ShopProvider } from "./ShopContext";

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useShop } from "../../../hooks";
 import toast from "react-hot-toast";
 
-export default function ProductCard({ product }) {
+export function ProductCard({ product }) {
   const { cart, setCart } = useShop();
 
   const handleAdd = () => {

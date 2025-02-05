@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { UserStatus } from "./UserStatus";
 import { CartStatus } from "./CartStatus";
 
-export default function Navbar() {
+export function Navbar() {
   return (
     <nav className="flex justify-start items-center bg-white shadow-md mx-auto lg:mt-4 px-4 sm:px-14 lg:px-7 lg:rounded-full w-full lg:w-8/12 h-[56px] font-medium text-black text-xs sm:text-base">
       <Link to="/">Home</Link>

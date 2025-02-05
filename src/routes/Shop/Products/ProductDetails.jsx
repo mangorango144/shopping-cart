@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 import { useShop } from "../../../hooks";
-import ProductsLoader from "./ProductsLoader";
+import { ProductsLoader } from "./ProductsLoader";
 import toast from "react-hot-toast";
 
-export default function ProductDetails() {
+export function ProductDetails() {
   const { id } = useParams();
   const { products, loading, error, cart, setCart } = useShop();
 

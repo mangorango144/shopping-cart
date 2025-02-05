@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 
-export default function PaymentForm({ className }) {
+export function PaymentForm({ className }) {
   const handlePayment = (e) => {
     e.preventDefault();
 

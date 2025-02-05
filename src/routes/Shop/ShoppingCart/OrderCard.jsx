@@ -2,7 +2,7 @@ import { useShop } from "../../../hooks";
 import { TbTrashOff } from "react-icons/tb";
 import toast from "react-hot-toast";
 
-export default function OrderCard({ product, updateQuantities }) {
+export function OrderCard({ product, updateQuantities }) {
   const { cart, setCart } = useShop();
 
   const handleRemove = () => {

@@ -4,7 +4,7 @@ import { ShopProvider } from "../routes/Shop/context";
 import { Toaster } from "react-hot-toast";
 import { UserProvider } from "../context";
 
-export default function Layout() {
+export function Layout() {
   return (
     <div className="flex flex-col min-h-screen">
       <ShopProvider>

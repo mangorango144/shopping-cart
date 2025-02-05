@@ -1,11 +1,11 @@
 import { useState } from "react";
-import AdditionalService from "./AdditionalService";
-import Delivery from "./Delivery";
-import Order from "./Order";
-import PaymentForm from "./PaymentForm";
-import PaymentSummary from "./PaymentSummary";
+import { AdditionalService } from "./AdditionalService";
+import { Delivery } from "./Delivery";
+import { Order } from "./Order";
+import { PaymentForm } from "./PaymentForm";
+import { PaymentSummary } from "./PaymentSummary";
 
-export default function ShoppingCart() {
+export function ShoppingCart() {
   const [cartQuantities, setCartQuantities] = useState({});
   const [selectedServices, setSelectedServices] = useState({
     care_package: 0,
