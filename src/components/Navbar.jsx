@@ -1,26 +1,20 @@
 import { Link } from "react-router-dom";
-import { BsCart4 } from "react-icons/bs";
-import { useShop } from "../hooks";
+import { UserStatus } from "./UserStatus";
+import { CartStatus } from "./CartStatus";
 
 export default function Navbar() {
-  const { cart } = useShop();
-
   return (
-    <nav className="flex justify-start items-center bg-white shadow-md mx-auto mt-4 px-14 rounded-full w-[95%] xl:w-8/12 h-[56px] font-medium text-black">
+    <nav className="flex justify-start items-center bg-white shadow-md mx-auto lg:mt-4 px-4 sm:px-14 lg:px-7 lg:rounded-full w-full lg:w-8/12 h-[56px] font-medium text-black text-xs sm:text-base">
       <Link to="/">Home</Link>
       <Link to="shop/products" className="ml-5">
         Products
       </Link>
-      <Link
-        to="shop/shopping-cart"
-        className="flex items-center hover:bg-lime-200 ml-auto px-4 py-1 rounded-2xl transition duration-500"
-      >
-        <BsCart4 className="mr-2 w-auto h-6" />
-        <span className="flex flex-col min-w-20 sm:min-w-10 text-xs">
-          My Cart
-          <span className="text-slate-400">{cart.length} Items</span>
-        </span>
-      </Link>
+
+      <CartStatus />
+
+      <div className="border-1 mr-2 sm:mr-6 ml-1 sm:ml-2 border-l h-7"></div>
+
+      <UserStatus />
     </nav>
   );
 }
