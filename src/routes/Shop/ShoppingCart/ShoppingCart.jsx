@@ -19,7 +19,7 @@ export default function ShoppingCart() {
       <h2 className="bg-clip-text bg-gradient-to-b from-teal-300 to-teal-600 mb-10 w-full font-bold text-4xl text-center text-transparent">
         Your cart:
       </h2>
-      <div className="gap-16 grid grid-cols-1 2xl:grid-cols-[2fr_1fr] m-auto w-[95%] xl:w-8/12">
+      <div className="gap-16 grid grid-cols-1 2xl:grid-cols-[2fr_1fr] m-auto w-[95%] md:w-8/12 2xl:w-[1268px]">
         <Order updateQuantities={setCartQuantities} />
         <PaymentSummary
           className="order-4 2xl:order-2"
