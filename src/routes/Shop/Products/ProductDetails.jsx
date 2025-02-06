@@ -2,11 +2,16 @@ import { useParams } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 import { useShop } from "../../../hooks";
 import { ProductsLoader } from "./ProductsLoader";
+import { useEffect } from "react";
 import toast from "react-hot-toast";
 
 export function ProductDetails() {
   const { id } = useParams();
   const { products, loading, error, cart, setCart } = useShop();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (loading) return <ProductsLoader />;
   if (error) {

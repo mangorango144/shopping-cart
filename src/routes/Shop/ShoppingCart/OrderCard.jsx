@@ -1,9 +1,11 @@
 import { useShop } from "../../../hooks";
 import { TbTrashOff } from "react-icons/tb";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export function OrderCard({ product, updateQuantities }) {
   const { cart, setCart } = useShop();
+  const navigate = useNavigate();
 
   const handleRemove = () => {
     setCart(cart.filter((curr) => curr.id != product.id));
@@ -17,8 +19,16 @@ export function OrderCard({ product, updateQuantities }) {
 
   return (
     <>
-      <img src={product.image} alt={product.title} className="" />
-      <p className="font-medium text-[8px] text-slate-600 sm:text-sm">
+      <img
+        src={product.image}
+        alt={product.title}
+        onClick={() => navigate(`/shop/products/${product.id}`)}
+        className="cursor-pointer"
+      />
+      <p
+        className="font-medium text-[8px] text-slate-600 sm:text-sm cursor-pointer"
+        onClick={() => navigate(`/shop/products/${product.id}`)}
+      >
         {product.title}
       </p>
       <p className="font-bold text-[8px] sm:text-base">
