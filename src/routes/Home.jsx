@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export function Home() {
   return (
     <section className="space-x-6 pt-10 font-bold text-center animate-slideUpFadeIn">
-      <p className="bg-clip-text bg-neutral-400 bg-gradient-to-b from-neutral-950 mb-10 text-3xl text-transparent sm:text-5xl 2xl:text-7xl leading-relaxed">
+      <p className="bg-clip-text bg-neutral-400 bg-gradient-to-b from-neutral-950 mb-10 pb-3 text-3xl text-transparent sm:text-5xl 2xl:text-7xl">
         Project: Shopping Cart
         <br />
         from The Odin Project

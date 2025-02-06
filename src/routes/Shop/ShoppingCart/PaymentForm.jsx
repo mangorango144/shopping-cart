@@ -33,9 +33,7 @@ export function PaymentForm({ className }) {
         onSubmit={handlePayment}
         className="gap-2 gap-x-6 grid grid-cols-2 bg-white shadow-md p-9 rounded-xl 2xl:w-[500px]"
       >
-        <span className="col-span-2 font-medium text-slate-500">
-          First and Last Name
-        </span>
+        <span className="col-span-2 font-medium">First and Last Name</span>
         <input
           type="text"
           name="name_input"
@@ -47,9 +45,7 @@ export function PaymentForm({ className }) {
           }}
         />
 
-        <span className="col-span-2 mt-2 font-medium text-slate-500">
-          Credit Card Number
-        </span>
+        <span className="col-span-2 mt-2 font-medium">Credit Card Number</span>
         <input
           type="text"
           name="card_input"
@@ -64,8 +60,8 @@ export function PaymentForm({ className }) {
           }}
         />
 
-        <span className="mt-2 font-medium text-slate-500">Expiry date </span>
-        <span className="mt-2 font-medium text-slate-500">CVV </span>
+        <span className="mt-2 font-medium">Expiry date </span>
+        <span className="mt-2 font-medium">CVV </span>
 
         <input
           type="text"

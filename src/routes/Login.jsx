@@ -59,6 +59,7 @@ export function Login() {
           <input
             type="text"
             name="email"
+            defaultValue="john@gmail.com"
             placeholder="Email"
             className="bg-slate-100 p-2 pl-10 rounded-xl w-full placeholder:text-slate-400"
           />
@@ -70,8 +71,7 @@ export function Login() {
             ref={inputRef}
             type="password"
             name="password"
-            value="m38rmF$"
-            onChange={() => {}}
+            defaultValue="m38rmF$"
             placeholder="Password"
             className="bg-slate-100 p-2 pl-10 rounded-xl w-full placeholder:text-slate-400"
           />
