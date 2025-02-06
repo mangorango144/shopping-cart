@@ -1,3 +1,4 @@
+import { AuthGuard } from "../components";
 import { Layout } from "../layouts";
 import { Login, ProductDetails, Products } from "../routes";
 import { ShoppingCart } from "../routes";
@@ -35,7 +36,11 @@ export const routes = [
       },
       {
         path: "/login",
-        element: <Login />,
+        element: (
+          <AuthGuard>
+            <Login />
+          </AuthGuard>
+        ),
       },
     ],
   },
