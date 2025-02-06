@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { useShop, useUser } from "../../../hooks";
 
 export function PaymentSummary({
@@ -8,6 +9,14 @@ export function PaymentSummary({
 }) {
   const { cart } = useShop();
   const { userData } = useUser();
+  const [discount, setDiscount] = useState(false);
+  const inputRef = useRef();
+
+  const handleApplyDiscount = () => {
+    inputRef.current.value.toUpperCase() === "123"
+      ? setDiscount(true)
+      : setDiscount(false);
+  };
 
   const orderSummary = cart
     .reduce(
@@ -43,11 +52,16 @@ export function PaymentSummary({
 
         <input
           type="text"
-          placeholder="coupon code"
+          placeholder="coupon code (try 123)"
           name="coupon"
+          ref={inputRef}
+          onKeyDown={(e) => e.key === "Enter" && handleApplyDiscount()}
           className="border-2 p-2 rounded-md font-medium uppercase"
         />
-        <button className="bg-sky-100 hover:bg-sky-200 rounded-md font-medium text-sky-500">
+        <button
+          onClick={handleApplyDiscount}
+          className="bg-sky-100 hover:bg-sky-200 rounded-md font-medium text-sky-500"
+        >
           Apply
         </button>
 
@@ -69,7 +83,20 @@ export function PaymentSummary({
         </p>
 
         <p className="font-medium text-gray-400 text-left">Total Amount</p>
-        <p className="text-right font-semibold">${totalAmmount}</p>
+        <p
+          className={`${discount ? "line-through opacity-40" : ""}  text-right font-semibold`}
+        >
+          ${totalAmmount}
+        </p>
+
+        {discount && (
+          <>
+            <p className="font-medium text-gray-400 text-left">With Discount</p>
+            <p className="text-right font-bold text-red-600">
+              ${totalAmmount - 10}
+            </p>
+          </>
+        )}
 
         <hr className="col-span-2 border-t-2 border-dashed" />
 
