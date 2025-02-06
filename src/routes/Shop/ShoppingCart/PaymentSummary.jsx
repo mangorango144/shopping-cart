@@ -1,4 +1,4 @@
-import { useShop } from "../../../hooks";
+import { useShop, useUser } from "../../../hooks";
 
 export function PaymentSummary({
   className,
@@ -7,6 +7,7 @@ export function PaymentSummary({
   delivery,
 }) {
   const { cart } = useShop();
+  const { userData } = useUser();
 
   const orderSummary = cart
     .reduce(
@@ -32,7 +33,9 @@ export function PaymentSummary({
       <span className="block mb-5 font-medium text-2xl">Payment Summary</span>
       <div className="gap-4 space-y-2 grid grid-cols-[2fr_1fr] bg-white shadow-md p-7 rounded-xl">
         <span className="col-span-2 bg-zinc-200 p-2 rounded-md font-semibold text-center text-gray-600 uppercase">
-          unregistered account
+          {userData
+            ? `${userData.name.firstname}'s account`
+            : "unregistered account"}
         </span>
 
         <p className="font-medium text-gray-400 text-left">Transaction code</p>

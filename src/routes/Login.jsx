@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { MdEmail } from "react-icons/md";
 import { IoMdUnlock } from "react-icons/io";
 import { FaEyeSlash } from "react-icons/fa";
+import { capitalize } from "../lib";
 
 export function Login() {
   const inputRef = useRef(null);
@@ -36,7 +37,7 @@ export function Login() {
       if (user) {
         localStorage.setItem("user", JSON.stringify(user));
         setUserData(user);
-        toast.success(`Welcome, ${user.name.firstname}!`);
+        toast.success(`Welcome, ${capitalize(user.name.firstname)}!`);
         navigate("/");
       } else {
         toast.error("Invalid email or password");

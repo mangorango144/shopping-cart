@@ -30,7 +30,7 @@ export function Delivery({ className, updateDelivery }) {
       <span className="block mb-5 font-medium text-2xl">Delivery</span>
       <div className="gap-x-12 gap-y-5 grid grid-cols-1 lg:grid-cols-2 rounded-xl">
         <div
-          className="items-center grid grid-cols-[1fr_20fr] w-full"
+          className="items-center grid grid-cols-[1fr_20fr] w-full cursor-pointer"
           onClick={() => setActive("speedy")}
         >
           <div
@@ -64,7 +64,7 @@ export function Delivery({ className, updateDelivery }) {
         </div>
 
         <div
-          className="items-center grid grid-cols-[1fr_20fr] w-full"
+          className="items-center grid grid-cols-[1fr_20fr] w-full cursor-pointer"
           onClick={() => setActive("econt")}
         >
           <div
@@ -98,7 +98,7 @@ export function Delivery({ className, updateDelivery }) {
         </div>
 
         <div
-          className="items-center grid grid-cols-[1fr_20fr] w-full"
+          className="items-center grid grid-cols-[1fr_20fr] w-full cursor-pointer"
           onClick={() => setActive("dhl")}
         >
           <div
@@ -132,7 +132,7 @@ export function Delivery({ className, updateDelivery }) {
         </div>
 
         <div
-          className="items-center grid grid-cols-[1fr_20fr] w-full"
+          className="items-center grid grid-cols-[1fr_20fr] w-full cursor-pointer"
           onClick={() => setActive("collect")}
         >
           <div
