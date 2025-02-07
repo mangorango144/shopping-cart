@@ -13,7 +13,7 @@ export function PaymentSummary({
   const inputRef = useRef();
 
   const handleApplyDiscount = () => {
-    inputRef.current.value.toUpperCase() === "123"
+    inputRef.current.value.toUpperCase() === "50%"
       ? setDiscount(true)
       : setDiscount(false);
   };
@@ -48,7 +48,7 @@ export function PaymentSummary({
 
         <input
           type="text"
-          placeholder="coupon code (try 123)"
+          placeholder="coupon code (try 50%)"
           name="coupon"
           ref={inputRef}
           onKeyDown={(e) => e.key === "Enter" && handleApplyDiscount()}
@@ -89,7 +89,7 @@ export function PaymentSummary({
           <>
             <p className="font-medium text-gray-400 text-left">With Discount</p>
             <p className="text-right font-bold text-red-600">
-              ${totalAmmount - 10}
+              ${(totalAmmount * 0.5).toFixed(2)}
             </p>
           </>
         )}
