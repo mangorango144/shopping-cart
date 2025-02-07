@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useShop, useUser } from "../../../hooks";
 
 export function PaymentSummary({
@@ -18,24 +18,20 @@ export function PaymentSummary({
       : setDiscount(false);
   };
 
-  const orderSummary = cart
-    .reduce(
-      (accumulator, currItem) =>
-        accumulator + currItem.price * (cartQuantities[currItem.id] || 1),
+  const orderSummary = useMemo(() => {
+    return cart.reduce(
+      (total, currItem) =>
+        total + currItem.price * (cartQuantities[currItem.id] || 1),
       0
-    )
-    .toFixed(2);
+    );
+  }, [cart, cartQuantities]);
 
   const additionalService = Object.values(selectedServices).reduce(
-    (acc, num) => acc + num,
+    (total, num) => total + num,
     0
   );
 
-  const totalAmmount = (
-    Number(orderSummary) +
-    additionalService +
-    delivery
-  ).toFixed(2);
+  const totalAmmount = orderSummary + additionalService + delivery;
 
   return (
     <div className={className}>
@@ -68,7 +64,7 @@ export function PaymentSummary({
         <hr className="col-span-2 border-t-2 border-dashed" />
 
         <p className="font-medium text-gray-400 text-left">Order Summary</p>
-        <p className="text-right font-semibold">${orderSummary}</p>
+        <p className="text-right font-semibold">${orderSummary.toFixed(2)}</p>
 
         <p className="font-medium text-gray-400 text-left">
           Additional Service
@@ -86,7 +82,7 @@ export function PaymentSummary({
         <p
           className={`${discount ? "line-through opacity-40" : ""}  text-right font-semibold`}
         >
-          ${totalAmmount}
+          ${totalAmmount.toFixed(2)}
         </p>
 
         {discount && (
