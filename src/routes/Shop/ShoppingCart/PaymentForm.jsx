@@ -6,12 +6,32 @@ export function PaymentForm({ className }) {
 
     const form = e.target;
     const nameInput = form.elements.name_input.value.trim();
-    const cardInput = form.elements.card_input.value.trim();
-    const expiryInput = form.elements.expiry_input.value.trim();
-    const cvvInput = form.elements.cvv_input.value.trim();
+    const cardInput = form.elements.card_input.value;
+    const expiryInput = form.elements.expiry_input.value;
+    const cvvInput = form.elements.cvv_input.value;
 
     if (!nameInput || !cardInput || !expiryInput || !cvvInput) {
-      toast.error("All fields are required.");
+      toast.error("All fields are required");
+      return;
+    }
+
+    if (!nameInput.includes(" ")) {
+      toast.error("Invalid name format");
+      return;
+    }
+
+    if (cardInput.length !== 19) {
+      toast.error("Invalid credit card number");
+      return;
+    }
+
+    if (expiryInput.length !== 5) {
+      toast.error("Invalid expiry date");
+      return;
+    }
+
+    if (cvvInput.length !== 3) {
+      toast.error("Invalid CVV");
       return;
     }
 
