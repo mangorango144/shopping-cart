@@ -46,7 +46,7 @@ export function OrderCard({ product, updateQuantities }) {
         />
         <div
           onClick={handleRemove}
-          className="flex justify-center hover:border-2 hover:bg-red-100 ml-6 border-red-200 rounded-lg w-8 cursor-pointer"
+          className="flex justify-center hover:bg-red-100 ml-2 sm:ml-6 hover:border-2 border-red-200 rounded-lg w-8 cursor-pointer"
         >
           <TbTrashOff className="text-red-600 text-sm md:text-xl" />
         </div>
