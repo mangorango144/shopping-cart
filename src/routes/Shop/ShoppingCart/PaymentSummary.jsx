@@ -36,15 +36,15 @@ export function PaymentSummary({
   return (
     <div className={className}>
       <span className="block mb-5 font-medium text-2xl">Payment Summary</span>
-      <div className="gap-4 space-y-2 grid grid-cols-[2fr_1fr] bg-white shadow-md p-7 rounded-xl">
-        <span className="col-span-2 bg-zinc-200 p-2 rounded-md font-semibold text-center text-gray-600 uppercase">
+      <div className="gap-y-6 sm:gap-x-4 grid grid-cols-[2fr_1fr] bg-white shadow-md p-3 sm:p-7 rounded-xl">
+        <span className="col-span-2 bg-zinc-200 p-2 rounded-md font-semibold text-gray-600 text-center uppercase">
           {userData
             ? `${userData.name.firstname}'s account`
             : "unregistered account"}
         </span>
 
         <p className="font-medium text-gray-400 text-left">Transaction code</p>
-        <p className="text-right font-semibold text-gray-600">VC11566S</p>
+        <p className="font-semibold text-gray-600 text-right">VC11566S</p>
 
         <input
           type="text"
@@ -52,7 +52,7 @@ export function PaymentSummary({
           name="coupon"
           ref={inputRef}
           onKeyDown={(e) => e.key === "Enter" && handleApplyDiscount()}
-          className="border-2 p-2 rounded-md font-medium uppercase"
+          className="p-2 border-2 rounded-md font-medium uppercase"
         />
         <button
           onClick={handleApplyDiscount}
@@ -64,17 +64,17 @@ export function PaymentSummary({
         <hr className="col-span-2 border-t-2 border-dashed" />
 
         <p className="font-medium text-gray-400 text-left">Order Summary</p>
-        <p className="text-right font-semibold">${orderSummary.toFixed(2)}</p>
+        <p className="font-semibold text-right">${orderSummary.toFixed(2)}</p>
 
         <p className="font-medium text-gray-400 text-left">
           Additional Service
         </p>
-        <p className="text-right font-semibold text-sky-500">
+        <p className="font-semibold text-sky-500 text-right">
           {additionalService ? `$${additionalService}` : "None"}
         </p>
 
         <p className="font-medium text-gray-400 text-left">Delivery</p>
-        <p className="text-right font-semibold">
+        <p className="font-semibold text-right">
           {delivery === 0 ? "Free" : `$${delivery.toFixed(2)}`}
         </p>
 
@@ -88,7 +88,7 @@ export function PaymentSummary({
         {discount && (
           <>
             <p className="font-medium text-gray-400 text-left">With Discount</p>
-            <p className="text-right font-bold text-red-600">
+            <p className="font-bold text-red-600 text-right">
               ${(totalAmmount * 0.5).toFixed(2)}
             </p>
           </>
@@ -96,9 +96,11 @@ export function PaymentSummary({
 
         <hr className="col-span-2 border-t-2 border-dashed" />
 
-        <span className="col-span-2 bg-red-100 p-2 rounded-md font-semibold text-center text-gray-600 text-sm uppercase rounde-md">
+        <span className="col-span-2 bg-red-100 p-2 rounded-md font-semibold text-gray-600 text-sm text-center uppercase rounde-md">
           sale expiring in:{" "}
-          <span className="font-bold text-red-500">21 hours, 31 minutes</span>
+          <span className="font-bold text-red-500 text-xs sm:text-base">
+            21 hours, 31 minutes
+          </span>
         </span>
       </div>
     </div>
