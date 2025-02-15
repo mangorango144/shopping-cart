@@ -36,7 +36,7 @@ export function PaymentSummary({
   return (
     <div className={className}>
       <span className="block mb-5 font-medium text-2xl">Payment Summary</span>
-      <div className="gap-y-6 sm:gap-x-4 grid grid-cols-[2fr_1fr] bg-white shadow-md p-3 sm:p-7 rounded-xl">
+      <div className="gap-y-6 grid grid-cols-[2fr_1fr] bg-white shadow-md p-3 sm:p-7 rounded-xl">
         <span className="col-span-2 bg-zinc-200 p-2 rounded-md font-semibold text-gray-600 text-center uppercase">
           {userData
             ? `${userData.name.firstname}'s account`
@@ -56,7 +56,7 @@ export function PaymentSummary({
         />
         <button
           onClick={handleApplyDiscount}
-          className="bg-sky-100 hover:bg-sky-200 rounded-md font-medium text-sky-500"
+          className="bg-sky-100 hover:bg-sky-200 ml-3 rounded-md font-medium text-sky-500"
         >
           Apply
         </button>
