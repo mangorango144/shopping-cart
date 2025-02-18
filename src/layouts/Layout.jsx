@@ -1,8 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Footer, Navbar } from "../components";
-import { ShopProvider } from "../routes/Shop/context";
 import { Toaster } from "react-hot-toast";
-import { UserProvider } from "../context";
+import { ShopProvider, UserProvider } from "../context";
 
 export function Layout() {
   return (

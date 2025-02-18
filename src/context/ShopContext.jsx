@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { useCart, useFetchProducts } from "../../../hooks";
+import { useCart, useFetchProducts } from "../hooks";
 
 export const ShopContext = createContext();
 
