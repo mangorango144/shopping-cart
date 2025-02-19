@@ -1,13 +1,8 @@
 import { useMemo, useRef, useState } from "react";
 import { useShop, useUser } from "../../../hooks";
 
-export function PaymentSummary({
-  className,
-  cartQuantities,
-  selectedServices,
-  delivery,
-}) {
-  const { cart } = useShop();
+export function PaymentSummary({ className, selectedServices, delivery }) {
+  const { cart, cartQuantities } = useShop();
   const { userData } = useUser();
   const [discount, setDiscount] = useState(false);
   const inputRef = useRef();

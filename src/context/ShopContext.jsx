@@ -1,15 +1,22 @@
 import { createContext } from "react";
-import { useCart, useFetchProducts } from "../hooks";
+import { useCart, useCartQuantities, useFetchProducts } from "../hooks";
 
 export const ShopContext = createContext();
 
 export function ShopProvider({ children }) {
   const { products, loading, error } = useFetchProducts();
   const { cart, setCart } = useCart();
+  const { cartQuantities, setCartQuantities } = useCartQuantities();
 
-  return (
-    <ShopContext.Provider value={{ products, loading, error, cart, setCart }}>
-      {children}
-    </ShopContext.Provider>
-  );
+  const values = {
+    products,
+    loading,
+    error,
+    cart,
+    setCart,
+    cartQuantities,
+    setCartQuantities,
+  };
+
+  return <ShopContext.Provider value={values}>{children}</ShopContext.Provider>;
 }

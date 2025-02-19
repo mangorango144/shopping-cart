@@ -3,7 +3,7 @@ import { OrderCard } from "./OrderCard";
 import { useShop } from "../../../hooks";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 
-export function Order({ updateQuantities }) {
+export function Order() {
   const { cart } = useShop();
 
   return (
@@ -18,7 +18,7 @@ export function Order({ updateQuantities }) {
         )}
         {cart.map((product, index) => (
           <Fragment key={product.id}>
-            <OrderCard product={product} updateQuantities={updateQuantities} />
+            <OrderCard product={product} />
             {index < cart.length - 1 && <hr className="col-span-4" />}
           </Fragment>
         ))}

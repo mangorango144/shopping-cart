@@ -3,27 +3,28 @@ import { TbTrashOff } from "react-icons/tb";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-export function OrderCard({ product, updateQuantities }) {
-  const { cart, setCart } = useShop();
+export function OrderCard({ product }) {
+  const { cart, setCart, cartQuantities, setCartQuantities } = useShop();
   const navigate = useNavigate();
 
   const handleRemove = () => {
     setCart(cart.filter((curr) => curr.id != product.id));
+    setCartQuantities((prev) => ({ ...prev, [product.id]: 0 }));
     toast("Removed from cart", { icon: "❌" });
   };
 
-  const handleInput = (e) => {
+  const handleChange = (e) => {
     let value = e.target.value;
 
     if (value === "") {
-      updateQuantities((prev) => ({ ...prev, [product.id]: "" }));
+      setCartQuantities((prev) => ({ ...prev, [product.id]: 1 }));
       return;
     }
 
     value = Math.max(1, Number(value));
     e.target.value = value;
 
-    updateQuantities((prev) => ({ ...prev, [product.id]: value }));
+    setCartQuantities((prev) => ({ ...prev, [product.id]: value }));
   };
 
   return (
@@ -49,8 +50,8 @@ export function OrderCard({ product, updateQuantities }) {
           type="number"
           name="quantity"
           min="1"
-          defaultValue="1"
-          onInput={handleInput}
+          defaultValue={cartQuantities[product.id] || 1}
+          onChange={handleChange}
           className="ml-1 border rounded-lg show-spinner w-10 text-center"
         />
         <div
