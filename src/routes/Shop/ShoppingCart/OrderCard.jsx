@@ -13,8 +13,17 @@ export function OrderCard({ product, updateQuantities }) {
   };
 
   const handleInput = (e) => {
-    e.target.value = Math.max(1, Number(e.target.value) || 1);
-    updateQuantities((prev) => ({ ...prev, [product.id]: e.target.value }));
+    let value = e.target.value;
+
+    if (value === "") {
+      updateQuantities((prev) => ({ ...prev, [product.id]: "" }));
+      return;
+    }
+
+    value = Math.max(1, Number(value));
+    e.target.value = value;
+
+    updateQuantities((prev) => ({ ...prev, [product.id]: value }));
   };
 
   return (
