@@ -1,26 +1,26 @@
-import { FaCheck } from "react-icons/fa6";
-import { box_logo as box_logo, speedy_logo } from "../../../assets";
-import { econt_logo } from "../../../assets";
-import { dhl_logo } from "../../../assets";
 import { useEffect, useState } from "react";
+import { useShop } from "../../../hooks";
+import { FaCheck } from "react-icons/fa6";
+import { speedy_logo, econt_logo, dhl_logo, box_logo } from "../../../assets";
 
-export function Delivery({ className, updateDelivery }) {
-  const [active, setActive] = useState("collect");
+export function Delivery({ className }) {
+  const { delivery, setDelivery } = useShop();
+  const [active, setActive] = useState(delivery.name);
 
   useEffect(() => {
     switch (active) {
       case "speedy":
-        updateDelivery(5.25);
+        setDelivery({ name: "speedy", cost: 5.25 });
         break;
       case "econt":
-        updateDelivery(7.25);
+        setDelivery({ name: "econt", cost: 7.25 });
         break;
       case "dhl":
-        updateDelivery(5.5);
+        setDelivery({ name: "dhl", cost: 5.5 });
         break;
 
       default:
-        updateDelivery(0);
+        setDelivery({ name: "collect", cost: 0 });
         break;
     }
   }, [active]);

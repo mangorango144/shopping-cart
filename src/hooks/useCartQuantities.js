@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useCartQuantities() {
+export const useCartQuantities = () => {
   const [cartQuantities, setCartQuantities] = useState(() => {
     const storedQuantities = sessionStorage.getItem("cartQuantities");
     return storedQuantities ? JSON.parse(storedQuantities) : {};
@@ -11,4 +11,4 @@ export function useCartQuantities() {
   }, [cartQuantities]);
 
   return { cartQuantities, setCartQuantities };
-}
+};

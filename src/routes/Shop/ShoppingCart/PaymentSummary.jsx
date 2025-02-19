@@ -1,8 +1,8 @@
 import { useMemo, useRef, useState } from "react";
 import { useShop, useUser } from "../../../hooks";
 
-export function PaymentSummary({ className, selectedServices, delivery }) {
-  const { cart, cartQuantities } = useShop();
+export function PaymentSummary({ className, selectedServices }) {
+  const { cart, cartQuantities, delivery } = useShop();
   const { userData } = useUser();
   const [discount, setDiscount] = useState(false);
   const inputRef = useRef();
@@ -26,7 +26,7 @@ export function PaymentSummary({ className, selectedServices, delivery }) {
     0
   );
 
-  const totalAmmount = orderSummary + additionalService + delivery;
+  const totalAmmount = orderSummary + additionalService + delivery.cost;
 
   return (
     <div className={className}>
@@ -70,7 +70,7 @@ export function PaymentSummary({ className, selectedServices, delivery }) {
 
         <p className="font-medium text-gray-400 text-left">Delivery</p>
         <p className="font-semibold text-right">
-          {delivery === 0 ? "Free" : `$${delivery.toFixed(2)}`}
+          {delivery.cost === 0 ? "Free" : `$${delivery.cost.toFixed(2)}`}
         </p>
 
         <p className="font-medium text-gray-400 text-left">Total Amount</p>

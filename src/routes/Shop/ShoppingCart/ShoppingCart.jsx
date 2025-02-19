@@ -11,7 +11,6 @@ export function ShoppingCart() {
     environment_friendly: 0,
     golden_guard: 0,
   });
-  const [delivery, setDelivery] = useState(5.25);
 
   return (
     <section>
@@ -23,12 +22,8 @@ export function ShoppingCart() {
         <PaymentSummary
           className="order-4 2xl:order-2"
           selectedServices={selectedServices}
-          delivery={delivery}
         />
-        <Delivery
-          className="order-3 2xl:order-3"
-          updateDelivery={setDelivery}
-        />
+        <Delivery className="order-3 2xl:order-3" />
         <AdditionalService
           className="order-2 2xl:order-4"
           updateServices={setSelectedServices}
