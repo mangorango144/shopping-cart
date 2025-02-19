@@ -5,6 +5,9 @@
 - Global Components
   - Navbar
   - Footer
+  - AuthGuard
+  - CartStatus
+  - UserStatus
 - Home
 - Shop
   - Products
