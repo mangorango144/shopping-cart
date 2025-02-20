@@ -4,6 +4,7 @@ import {
   useCartQuantities,
   useDelivery,
   useFetchProducts,
+  useSelectedServices,
 } from "../hooks";
 
 export const ShopContext = createContext();
@@ -13,6 +14,7 @@ export function ShopProvider({ children }) {
   const { cart, setCart } = useCart();
   const { cartQuantities, setCartQuantities } = useCartQuantities();
   const { delivery, setDelivery } = useDelivery();
+  const { selectedServices, setSelectedServices } = useSelectedServices();
 
   const values = {
     products,
@@ -24,6 +26,8 @@ export function ShopProvider({ children }) {
     setCartQuantities,
     delivery,
     setDelivery,
+    selectedServices,
+    setSelectedServices,
   };
 
   return <ShopContext.Provider value={values}>{children}</ShopContext.Provider>;

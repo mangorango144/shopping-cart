@@ -1,15 +1,17 @@
-export function AdditionalService({ className, updateServices }) {
-  const services = {
-    care_package: 10,
-    environment_friendly: 2,
-    golden_guard: 5,
-  };
+import { useShop } from "../../../hooks";
+
+export function AdditionalService({ className }) {
+  const { selectedServices, setSelectedServices } = useShop();
 
   const handleChange = (e) => {
-    updateServices((prev) => ({
+    setSelectedServices((prev) => ({
       ...prev,
-      [e.target.name]: e.target.checked ? services[e.target.name] : 0,
+      [e.target.name]: { ...prev[e.target.name], selected: e.target.checked },
     }));
+  };
+
+  const isChecked = (name) => {
+    return selectedServices[name].selected;
   };
 
   return (
@@ -31,10 +33,11 @@ export function AdditionalService({ className, updateServices }) {
               type="checkbox"
               name="care_package"
               onChange={handleChange}
-              className="hidden peer"
+              checked={isChecked("care_package")}
+              className="peer hidden"
             />
-            <span className="bg-stone-200 peer-checked:bg-blue-200 rounded-full w-8 h-4"></span>
-            <span className="bg-white peer-checked:bg-blue-500 -ml-7 rounded-full w-3 h-3 transform transition peer-checked:translate-x-3"></span>
+            <span className="peer-checked:bg-blue-200 bg-stone-200 rounded-full w-8 h-4"></span>
+            <span className="peer-checked:bg-blue-500 bg-white -ml-7 rounded-full w-3 h-3 transition peer-checked:translate-x-3 transform"></span>
           </label>
         </div>
 
@@ -51,10 +54,11 @@ export function AdditionalService({ className, updateServices }) {
               type="checkbox"
               name="environment_friendly"
               onChange={handleChange}
-              className="hidden peer"
+              checked={isChecked("environment_friendly")}
+              className="peer hidden"
             />
-            <span className="bg-stone-200 peer-checked:bg-blue-200 rounded-full w-8 h-4"></span>
-            <span className="bg-white peer-checked:bg-blue-500 -ml-7 rounded-full w-3 h-3 transform transition peer-checked:translate-x-3"></span>
+            <span className="peer-checked:bg-blue-200 bg-stone-200 rounded-full w-8 h-4"></span>
+            <span className="peer-checked:bg-blue-500 bg-white -ml-7 rounded-full w-3 h-3 transition peer-checked:translate-x-3 transform"></span>
           </label>
         </div>
 
@@ -71,10 +75,11 @@ export function AdditionalService({ className, updateServices }) {
               type="checkbox"
               name="golden_guard"
               onChange={handleChange}
-              className="hidden peer"
+              checked={isChecked("golden_guard")}
+              className="peer hidden"
             />
-            <span className="bg-stone-200 peer-checked:bg-blue-200 rounded-full w-8 h-4"></span>
-            <span className="bg-white peer-checked:bg-blue-500 -ml-7 rounded-full w-3 h-3 transform transition peer-checked:translate-x-3"></span>
+            <span className="peer-checked:bg-blue-200 bg-stone-200 rounded-full w-8 h-4"></span>
+            <span className="peer-checked:bg-blue-500 bg-white -ml-7 rounded-full w-3 h-3 transition peer-checked:translate-x-3 transform"></span>
           </label>
         </div>
       </div>

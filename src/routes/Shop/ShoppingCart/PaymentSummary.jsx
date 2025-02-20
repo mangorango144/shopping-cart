@@ -1,17 +1,11 @@
 import { useMemo, useRef, useState } from "react";
 import { useShop, useUser } from "../../../hooks";
 
-export function PaymentSummary({ className, selectedServices }) {
-  const { cart, cartQuantities, delivery } = useShop();
+export function PaymentSummary({ className }) {
+  const { cart, cartQuantities, delivery, selectedServices } = useShop();
   const { userData } = useUser();
   const [discount, setDiscount] = useState(false);
   const inputRef = useRef();
-
-  const handleApplyDiscount = () => {
-    inputRef.current.value.toUpperCase() === "50%"
-      ? setDiscount(true)
-      : setDiscount(false);
-  };
 
   const orderSummary = useMemo(() => {
     return cart.reduce(
@@ -21,12 +15,17 @@ export function PaymentSummary({ className, selectedServices }) {
     );
   }, [cart, cartQuantities]);
 
-  const additionalService = Object.values(selectedServices).reduce(
-    (total, num) => total + num,
-    0
-  );
+  const additionalService = Object.values(selectedServices)
+    .filter((service) => service.selected)
+    .reduce((total, service) => total + service.cost, 0);
 
   const totalAmmount = orderSummary + additionalService + delivery.cost;
+
+  const handleApplyDiscount = () => {
+    inputRef.current.value.toUpperCase() === "50%"
+      ? setDiscount(true)
+      : setDiscount(false);
+  };
 
   return (
     <div className={className}>
