@@ -1,5 +1,12 @@
 # Project: Shopping Cart ([assignment link](https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart))
 
+## Technology Stack & Setup
+
+### Built with:
+- **Frontend**: React (Vite) with React Router, Context API for state management, and Tailwind CSS for styling.  
+- **Backend (Mocked)**: Uses [Fake Store API](https://fakestoreapi.com/) for product and cart data.  
+- **Data Fetching**: Fetch API for asynchronous requests.  
+
 ## Component Structure:
 
 - **Global Components**  
@@ -17,14 +24,7 @@
     - PaymentSummary  
     - Delivery  
     - AdditionalService  
-    - PaymentForm  
-
-## Technology Stack & Setup
-
-### Built with:
-- **Frontend**: React (Vite) with React Router, Context API for state management, and Tailwind CSS for styling.  
-- **Backend (Mocked)**: Uses [Fake Store API](https://fakestoreapi.com/) for product and cart data.  
-- **Data Fetching**: Fetch API for asynchronous requests.  
+    - PaymentForm 
 
 ### Setup Instructions:
 1. Clone the repository:  
