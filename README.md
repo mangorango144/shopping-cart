@@ -4,7 +4,7 @@
 
 ### Built with:
 - **Frontend**: React (Vite) with React Router, Context API for state management, and Tailwind CSS for styling.  
-- **Backend (Mocked)**: Uses [Fake Store API](https://fakestoreapi.com/) for product and cart data.  
+- **Backend (Mocked)**: Uses [Fake Store API](https://fakestoreapi.com/) for product and user data.  
 - **Data Fetching**: Fetch API for asynchronous requests.  
 
 ## Component Structure:
