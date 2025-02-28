@@ -10,24 +10,12 @@ import {
 export const ShopContext = createContext();
 
 export function ShopProvider({ children }) {
-  const { products, loading, error } = useFetchProducts();
-  const { cart, setCart } = useCart();
-  const { cartQuantities, setCartQuantities } = useCartQuantities();
-  const { delivery, setDelivery } = useDelivery();
-  const { selectedServices, setSelectedServices } = useSelectedServices();
-
   const values = {
-    products,
-    loading,
-    error,
-    cart,
-    setCart,
-    cartQuantities,
-    setCartQuantities,
-    delivery,
-    setDelivery,
-    selectedServices,
-    setSelectedServices,
+    ...useFetchProducts(),
+    ...useCart(),
+    ...useCartQuantities(),
+    ...useDelivery(),
+    ...useSelectedServices(),
   };
 
   return <ShopContext.Provider value={values}>{children}</ShopContext.Provider>;
