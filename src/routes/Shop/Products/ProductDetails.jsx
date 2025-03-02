@@ -1,13 +1,14 @@
 import { useParams } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
-import { useShop } from "../../../hooks";
+import { useCart, useProducts } from "../../../hooks";
 import { ProductsLoader } from "./ProductsLoader";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 
 export function ProductDetails() {
   const { id } = useParams();
-  const { products, loading, error, cart, setCart } = useShop();
+  const { products, loading, error } = useProducts();
+  const { cart, setCart } = useCart();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -32,7 +33,7 @@ export function ProductDetails() {
 
   const handleAdd = () => {
     if (!cart.some((item) => item.id == product.id)) {
-      setCart((prev) => [...prev, product]);
+      setCart([...cart, product]);
       toast.success("Added to cart");
     } else {
       toast.error("Already in the cart");

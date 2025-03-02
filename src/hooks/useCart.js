@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+// useCart.js
+import { useDispatch, useSelector } from "react-redux";
+import { selectCart, selectCartQuantities } from "../redux/shopSelectors";
+import { setCart, setCartQuantities } from "../redux/shopSlice";
 
 export const useCart = () => {
-  const [cart, setCart] = useState(() => {
-    const storedCart = sessionStorage.getItem("cart");
-    return storedCart ? JSON.parse(storedCart) : [];
-  });
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    sessionStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
-  return { cart, setCart };
+  return {
+    cart: useSelector(selectCart),
+    setCart: (data) => dispatch(setCart(data)),
+    cartQuantities: useSelector(selectCartQuantities),
+    setCartQuantities: (data) => dispatch(setCartQuantities(data)),
+  };
 };

@@ -1,14 +1,14 @@
 import { FaCartPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useShop } from "../../../hooks";
+import { useCart } from "../../../hooks";
 import toast from "react-hot-toast";
 
 export function ProductCard({ product }) {
-  const { cart, setCart } = useShop();
+  const { cart, setCart } = useCart();
 
   const handleAdd = () => {
     if (!cart.some((item) => item.id == product.id)) {
-      setCart((prev) => [...prev, product]);
+      setCart([...cart, product]);
       toast.success("Added to cart");
     } else {
       toast.error("Already in the cart");
@@ -29,7 +29,7 @@ export function ProductCard({ product }) {
       </Link>
       <div className="flex flex-col gap-4 mt-10">
         <Link to={`${product.id}`}>
-          <p className="text-center text-sm">{product.title}</p>
+          <p className="text-sm text-center">{product.title}</p>
         </Link>
         <p className="mx-auto font-bold">
           <span className="font-normal text-slate-500">Price: </span>$
@@ -37,7 +37,7 @@ export function ProductCard({ product }) {
         </p>
         <button
           onClick={handleAdd}
-          className="bg-green-600 hover:bg-green-500 p-3 rounded-2xl h-auto font-medium text-lg text-white"
+          className="bg-green-600 hover:bg-green-500 p-3 rounded-2xl h-auto font-medium text-white text-lg"
         >
           <FaCartPlus className="inline mr-1 mb-1" /> Add to cart
         </button>

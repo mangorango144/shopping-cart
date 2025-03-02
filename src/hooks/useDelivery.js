@@ -1,16 +1,13 @@
-import { useEffect, useState } from "react";
+// useDelivery.js
+import { useDispatch, useSelector } from "react-redux";
+import { selectDelivery } from "../redux/shopSelectors";
+import { setDelivery } from "../redux/shopSlice";
 
 export const useDelivery = () => {
-  const [delivery, setDelivery] = useState(() => {
-    const storedDelivery = sessionStorage.getItem("delivery");
-    return storedDelivery
-      ? JSON.parse(storedDelivery)
-      : { name: "collect", cost: 0 };
-  });
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    sessionStorage.setItem("delivery", JSON.stringify(delivery));
-  }, [delivery]);
-
-  return { delivery, setDelivery };
+  return {
+    delivery: useSelector(selectDelivery),
+    setDelivery: (data) => dispatch(setDelivery(data)),
+  };
 };

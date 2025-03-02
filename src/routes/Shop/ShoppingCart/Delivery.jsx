@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useShop } from "../../../hooks";
+import { useDelivery } from "../../../hooks";
 import { FaCheck } from "react-icons/fa6";
 import { speedy_logo, econt_logo, dhl_logo, box_logo } from "../../../assets";
 
 export function Delivery({ className }) {
-  const { delivery, setDelivery } = useShop();
+  const { delivery, setDelivery } = useDelivery();
   const [active, setActive] = useState(delivery.name);
 
   useEffect(() => {

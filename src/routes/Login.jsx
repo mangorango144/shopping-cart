@@ -35,7 +35,6 @@ export function Login() {
       );
 
       if (user) {
-        localStorage.setItem("user", JSON.stringify(user));
         setUserData(user);
         toast.success(`Welcome, ${capitalize(user.name.firstname)}!`);
         navigate("/");
@@ -79,7 +78,7 @@ export function Login() {
           <IoMdUnlock className="top-1/2 left-3 absolute text-slate-400 text-xl -translate-y-1/2" />
           <FaEyeSlash
             onClick={togglePassword}
-            className="top-1/2 right-3 absolute text-slate-400 text-xl hover:text-cyan-500 -translate-y-1/2 cursor-pointer"
+            className="top-1/2 right-3 absolute text-slate-400 hover:text-cyan-500 text-xl -translate-y-1/2 cursor-pointer"
           />
         </div>
 

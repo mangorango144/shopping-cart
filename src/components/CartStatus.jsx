@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { useShop } from "../hooks";
+import { useCart } from "../hooks";
 import { BsCart4 } from "react-icons/bs";
 
 export function CartStatus() {
-  const { cart } = useShop();
+  const { cart } = useCart();
 
   return (
     <>

@@ -1,10 +1,10 @@
 import { Fragment } from "react";
 import { OrderCard } from "./OrderCard";
-import { useShop } from "../../../hooks";
+import { useCart } from "../../../hooks";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 
 export function Order() {
-  const { cart } = useShop();
+  const { cart } = useCart();
 
   return (
     <div>
