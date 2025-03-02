@@ -3,9 +3,11 @@
 ## Technology Stack & Setup
 
 ### Built with:
-- **Frontend**: React (Vite) with React Router, Context API for state management, and Tailwind CSS for styling.  
+- **Frontend**: React (Vite) with React Router, Redux Toolkit (previously Context API) for state management, and Tailwind CSS for styling.  
 - **Backend (Mocked)**: Uses [Fake Store API](https://fakestoreapi.com/) for product and user data.  
 - **Data Fetching**: Fetch API for asynchronous requests.  
+
+> **Note:** This project originally used Context API for state management but was migrated to Redux Toolkit for better scalability. The last version using Context API is available under the [`context-api-version`](https://github.com/mangorango144/shopping-cart/tree/context-api-version) tag.
 
 ## Component Structure:
 
