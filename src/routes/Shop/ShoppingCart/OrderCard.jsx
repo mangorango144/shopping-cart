@@ -1,15 +1,15 @@
-import { useShop } from "../../../hooks";
+import { useCart } from "../../../hooks";
 import { TbTrashOff } from "react-icons/tb";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 export function OrderCard({ product }) {
-  const { cart, setCart, cartQuantities, setCartQuantities } = useShop();
+  const { cart, setCart, cartQuantities, setCartQuantities } = useCart();
   const navigate = useNavigate();
 
   const handleRemove = () => {
     setCart(cart.filter((curr) => curr.id != product.id));
-    setCartQuantities((prev) => ({ ...prev, [product.id]: 0 }));
+    setCartQuantities({ ...cartQuantities, [product.id]: 0 });
     toast("Removed from cart", { icon: "❌" });
   };
 
@@ -17,14 +17,14 @@ export function OrderCard({ product }) {
     let value = e.target.value;
 
     if (value === "") {
-      setCartQuantities((prev) => ({ ...prev, [product.id]: 1 }));
+      setCartQuantities({ ...cartQuantities, [product.id]: 1 });
       return;
     }
 
     value = Math.max(1, Number(value));
     e.target.value = value;
 
-    setCartQuantities((prev) => ({ ...prev, [product.id]: value }));
+    setCartQuantities({ ...cartQuantities, [product.id]: value });
   };
 
   return (

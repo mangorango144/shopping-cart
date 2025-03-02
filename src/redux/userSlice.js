@@ -10,7 +10,7 @@ const userSlice = createSlice({
   reducers: {
     setUserData: (state, action) => {
       state.userData = action.payload;
-      localStorage.setItem("user", JSON.stringify(action.payload));
+      localStorage.setItem("user", JSON.stringify(state.userData));
     },
     clearUserData: (state) => {
       state.userData = null;

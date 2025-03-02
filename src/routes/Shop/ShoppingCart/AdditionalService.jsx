@@ -1,13 +1,16 @@
-import { useShop } from "../../../hooks";
+import { useSelectedServices } from "../../../hooks";
 
 export function AdditionalService({ className }) {
-  const { selectedServices, setSelectedServices } = useShop();
+  const { selectedServices, setSelectedServices } = useSelectedServices();
 
   const handleChange = (e) => {
-    setSelectedServices((prev) => ({
-      ...prev,
-      [e.target.name]: { ...prev[e.target.name], selected: e.target.checked },
-    }));
+    setSelectedServices({
+      ...selectedServices,
+      [e.target.name]: {
+        ...selectedServices[e.target.name],
+        selected: e.target.checked,
+      },
+    });
   };
 
   const isChecked = (name) => {

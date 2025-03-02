@@ -1,23 +1,13 @@
-import { useEffect, useState } from "react";
+// useSelectedServices.js
+import { useDispatch, useSelector } from "react-redux";
+import { selectSelectedServices } from "../redux/shopSelectors";
+import { setSelectedServices } from "../redux/shopSlice";
 
 export const useSelectedServices = () => {
-  const [selectedServices, setSelectedServices] = useState(() => {
-    const storedSelectedServices = sessionStorage.getItem("selectedServices");
-    return storedSelectedServices
-      ? JSON.parse(storedSelectedServices)
-      : {
-          care_package: { cost: 10, selected: false },
-          environment_friendly: { cost: 2, selected: false },
-          golden_guard: { cost: 5, selected: false },
-        };
-  });
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    sessionStorage.setItem(
-      "selectedServices",
-      JSON.stringify(selectedServices)
-    );
-  }, [selectedServices]);
-
-  return { selectedServices, setSelectedServices };
+  return {
+    selectedServices: useSelector(selectSelectedServices),
+    setSelectedServices: (data) => dispatch(setSelectedServices(data)),
+  };
 };
