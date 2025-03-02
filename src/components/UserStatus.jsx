@@ -5,11 +5,10 @@ import { IoIosLogOut } from "react-icons/io";
 import { capitalize } from "../lib";
 
 export function UserStatus() {
-  const { userData, setUserData } = useUser();
+  const { userData, clearUserData } = useUser();
 
   const handleLogOut = () => {
-    localStorage.removeItem("user");
-    setUserData(null);
+    clearUserData();
     toast.success("Logged out");
   };
 

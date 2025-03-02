@@ -1,10 +1,13 @@
-import { useContext } from "react";
-import { UserContext } from "../context";
+import { useDispatch, useSelector } from "react-redux";
+import { clearUserData, setUserData } from "../redux/userSlice";
 
 export const useUser = () => {
-  const context = useContext(UserContext);
-  if (!context) {
-    throw new Error("useUser must be used within a UserProvider");
-  }
-  return context;
+  const userData = useSelector((state) => state.user.userData);
+  const dispatch = useDispatch();
+
+  return {
+    userData,
+    setUserData: (data) => dispatch(setUserData(data)),
+    clearUserData: () => dispatch(clearUserData()),
+  };
 };
